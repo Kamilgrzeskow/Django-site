@@ -1,0 +1,18 @@
+{% extends "kt/base.html" %}
+
+{% block content %}
+<body>
+    <ul>
+        <li>
+            <a href="/">Home</a>
+
+    </ul>
+<h2>Formularz dodawania</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ formKontakt.as_p }}
+
+        <button type="submit">Zapisz dane</button>
+    </form>
+</body>
+{% endblock content %}

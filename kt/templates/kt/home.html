@@ -1,0 +1,34 @@
+
+{% extends "kt/base.html" %}
+
+{% block content %}
+
+    <h1> Forum users test forms </h1>
+        <h3>Menu:</h3>
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/post">Post Zone</a>
+            </li>
+            <li>
+                <a href="/add">Add new user</a>
+            </li>
+        </ul>
+        <hr/>
+        <h3>List of users</h3>
+            {% for i in dane %}
+            <p>
+                <b>Name: </b> {{ i.imie }}
+                <b>Last Name: </b> {{ i.nazwisko }}
+                <b>Phone: </b> {{ i.telefon }}
+                <b>Email: </b> {{ i.email }}
+
+                <br/>
+                <a href="{% url 'usun' pk=i.pk %}">delete</a>
+                <a href="{% url 'edytuj' pk=i.pk %}">edit</a>
+            </p>
+            {% endfor %}
+
+{% endblock content%}

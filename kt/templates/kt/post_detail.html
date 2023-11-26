@@ -1,0 +1,27 @@
+{% extends "kt/base.html" %}
+{% block content %}
+    <body>
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+                <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+              <a class="mr-2" href="#">{{ object.author }}</a>
+              <small class="text-muted">{{ object.date_posted }}</small>
+                {% if object.author == user %}
+                <div>
+                    <a class= "btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.pk %}">Update</a>
+                    <a class= "btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.pk %}">Delete</a>
+                </div>
+                {% endif %}
+            </div>
+            <h2 class="article-title"> {{ object.title }}</h2>
+            <p class="article-content">{{ object.content }}</p>
+          </div>
+        </article>
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+        </ul>
+    </body>
+{% endblock content %}
